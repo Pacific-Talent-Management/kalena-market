@@ -1,0 +1,25 @@
+.army-bar {
+    text-align: center;
+    background-color: #FFCC30;
+    color: #ffffff;
+    padding:10px;
+}
+.side-nav-bar {
+    height:100%;
+    width:0;
+    position:fixed;
+    top:0;
+    left:0;
+    background-color: #333;
+    overflow-x:hidden;
+    transition:0.3s;
+    padding-top: 60px;
+}
+.side-nav-bar a {
+    padding: 15px 25 px;
+    text-decoration: none;
+    font-size: 18px;
+    color:#ffffff;
+    display: block;
+    transition: 0.3s;
+}

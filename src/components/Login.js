@@ -115,7 +115,7 @@ const Login = () => {
               </div>
             )}
             <span>Don't have an account?</span>
-            <Link to="/register">Register</Link>
+            <Link to="/registration">Register</Link>
             <CheckButton style={{display:"none"}}ref={checkBtn}/>
           </Form>
         </div>

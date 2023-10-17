@@ -76,48 +76,59 @@ const Login = () => {
       <Container className="py-3">
         <div className="card">
 
-          <img src="/images/logo2.png" alt="kalena-market-logo-img" width="350px"/>
-          <h2>Pacific Talent Management</h2>
-          <h1>Log In</h1>
-          <Form onSubmit={handleLogin} ref={form}>
-            <p>Email</p>
-            <Input
-              type="text"
-              className="form-control"
-              name="email"
-              value={email}
-              onChange={onChangeEmail}
-              validations={[required]}
-              placeholder="Email"
-            />
-            <p>Password</p>
-            <Input
-              type="password"
-              className="form-control"
-              name="password"
-              value={password}
-              onChange={onChangePassword}
-              validations={[required]}
-              placeholder="Password"
-            />
+          <div className='left'>
+            <h1>Log In</h1>
+            <Form onSubmit={handleLogin} ref={form}>
+              <p>Email</p>
+              <Input
+                  type="text"
+                  className="form-control"
+                  name="email"
+                  value={email}
+                  onChange={onChangeEmail}
+                  validations={[required]}
+                  placeholder="Email"
+              />
+              <p>Password</p>
+              <Input
+                  type="password"
+                  className="form-control"
+                  name="password"
+                  value={password}
+                  onChange={onChangePassword}
+                  validations={[required]}
+                  placeholder="Password"
+              />
 
-            <button className="btn btn-primary btn block" disabled={loading}>
-              {loading && (
-                <span className="spinner-border spinner-border-sm"></span>
+              <button className="btn btn-primary btn block" disabled={loading}>
+                {loading && (
+                    <span className="spinner-border spinner-border-sm"></span>
+                )}
+                <span>Login</span>
+              </button>
+              {message && (
+                  <div className="form-group">
+                    <div className="alert alert-danger" role="alert">
+                      {message}
+                    </div>
+                  </div>
               )}
-              <span>Login</span>
-            </button>
-            {message && (
-              <div className="form-group">
-                <div className="alert alert-danger" role="alert">
-                  {message}
-                </div>
-              </div>
-            )}
+
+              <CheckButton style={{display:"none"}}ref={checkBtn}/>
+              <Link to="/register">Forgot password?</Link>
+            </Form>
+          </div>
+
+          <div className='right'>
+            <img src="/images/logo.png" alt="kalena-market-logo-img" width="300px"/>
+            <h2>Pacific Talent Management Marketplace</h2>
+            <p>Kalena Market is a dynamic platform where individuals nurture and showcase their unique skills and talents. Join us on a journey where your skills and ambitions meet endless possibilities. Find your path, connect with like-minded individuals, and unlock the full potential of your talents at Kalena Market.</p>
             <span>Don't have an account?</span>
             <Link to="/register">Register</Link>
-            <CheckButton style={{display:"none"}}ref={checkBtn}/>
-          </Form>
+          </div>
+
+
+
         </div>
       </Container>
     </div>

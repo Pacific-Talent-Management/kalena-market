@@ -128,8 +128,6 @@ const Login = () => {
             <Link to="/register">Register</Link>
           </div>
 
-
-
         </div>
       </Container>
     </div>

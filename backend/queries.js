@@ -2,6 +2,9 @@ const mysql = require("mysql2");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const config = require("./config/auth.config.js");
+const {checkEmailExists} = require("./middleware/checkEmailExists.js");
+const express = require("express");
+const app = express();
 
 const connection = mysql.createConnection({
    host: '127.0.0.1',

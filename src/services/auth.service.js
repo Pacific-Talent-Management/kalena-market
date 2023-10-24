@@ -6,17 +6,17 @@ const API_URL = "http://localhost:8080/users/";
  * 
  * @param {string} first_name - The user's first name 
  * @param {string} last_name - The user's last name
+ * @param {string} phone_number - The user's phone number
  * @param {string} email - The user's email address
- * @param {string} phone - The user's phone number
  * @param {string} password - The user's password
  * @returns {Promise} A promise fulfilled when the registration request is complete
  */
-const register = (first_name, last_name, email, phone, password) => {
+const register = (first_name, last_name, phone_number, email, password) => {
     return axios.post(API_URL + "signup",{
         first_name,
         last_name,
+        phone_number,
         email,
-        phone,
         password
     });
 };

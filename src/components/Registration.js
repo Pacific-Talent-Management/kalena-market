@@ -214,64 +214,74 @@ const Register = () => {
     <div className="register">
         <Container className="py-3">
             <div className="card">
-                <h1>Register</h1>
-                <Form onSubmit={handleRegister} ref={form}>
-                    <p>First Name</p>
-                    <Input
-                        type="text"
-                        placeholder="Jane"
-                        value={first_name}
-                        onChange={onChangeFirstname}
-                        validations={[required, validFirstName]}
-                    />
-                    <p>Last Name</p>
-                    <Input
-                        type="text"
-                        placeholder="Doe"
-                        value={last_name}
-                        onChange={onChangeLastname}
-                        validations={[required, validLastName]}
-                    />
-                    <p>Phone Number</p>
-                    <Input
-                        type="text"
-                        placeholder="(xxx-xxx-xxxx)"
-                        value={phone_number}
-                        onChange={onChangePhonenumber}
-                        validations={[required, validPhoneNumber]}
-                    />
-                    <p>Email</p>
-                    <Input
-                        type="text"
-                        placeholder="Military email address"
-                        value={email}
-                        onChange={onChangeEmail}
-                        validations={[required, validEmail]}
-                    />
-                    <p>Password</p>
-                    <Input
-                        type="password"
-                        value={password}
-                        onChange={onChangePassword}
-                        validations={[required, validPassword]}
-                    />
-                    <p>Confirm Password</p>
-                    <Input
-                        type="password"
-                        value={confirmpassword}
-                        onChange={onChangeConfirmPassword}
-                        validations={[required]}
-                    />
-                    <button>Register</button>
-                    {message && (
-                        <div className={successful ? "alert alert-success":"alert alert-danger"}role="alert">
-                            {message}
-                        </div>
-                    )}
-                    <CheckButton style={{display:"none"}}ref={checkBtn}/>
-                </Form>
-                <span>Already have an account?</span>
-                <Link className="link" to="/login">Login</Link>
+                <div className='left'>
+                    <Form onSubmit={handleRegister} ref={form}>
+                        <h1>Register</h1>
+                        <p>First Name</p>
+                        <Input
+                            type="text"
+                            placeholder="Jane"
+                            value={first_name}
+                            onChange={onChangeFirstname}
+                            validations={[required, validFirstName]}
+                        />
+                        <p>Last Name</p>
+                        <Input
+                            type="text"
+                            placeholder="Doe"
+                            value={last_name}
+                            onChange={onChangeLastname}
+                            validations={[required, validLastName]}
+                        />
+                        <p>Phone Number</p>
+                        <Input
+                            type="text"
+                            placeholder="(xxx-xxx-xxxx)"
+                            value={phone_number}
+                            onChange={onChangePhonenumber}
+                            validations={[required, validPhoneNumber]}
+                        />
+                        <p>Email</p>
+                        <Input
+                            type="text"
+                            placeholder="Military email address"
+                            value={email}
+                            onChange={onChangeEmail}
+                            validations={[required, validEmail]}
+                        />
+                        <p>Password</p>
+                        <Input
+                            type="password"
+                            value={password}
+                            onChange={onChangePassword}
+                            validations={[required, validPassword]}
+                        />
+                        <p>Confirm Password</p>
+                        <Input
+                            type="password"
+                            value={confirmpassword}
+                            onChange={onChangeConfirmPassword}
+                            validations={[required]}
+                        />
+                        <button>Register</button>
+                        {message && (
+                            <div className={successful ? "alert alert-success":"alert alert-danger"}role="alert">
+                                {message}
+                            </div>
+                        )}
+                        <CheckButton style={{display:"none"}}ref={checkBtn}/>
+                    </Form>
+                </div>
+
+                <div className='right'>
+                    <h1>Welcome!</h1>
+                    <p>Whether you've a professional looking to advance your career, an employer seeking top-tier talent, or an enthusiast eager to explore a marketplace of skills, Kalena Market is your destination. </p>
+                    <span>Already have an account?</span>
+                    <Link className="link" to="/login">Login</Link>
+
+                </div>
+
+
             </div>
         </Container>
     </div>

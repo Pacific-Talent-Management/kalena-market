@@ -23,12 +23,13 @@
             padding: 30px;
             display: flex;
             flex-direction: column;
-            gap: 50px;
+            gap: 10px;
             justify-content: center;
             min-width: 350px;
             & h1 {
                 color: #545454;
                 text-align: center;
+                font-weight: bolder;
             }
             & form{
                 display: flex;
@@ -54,11 +55,15 @@
                     cursor: pointer;
                 }
             }
+            & img{
+                margin-top: 5px;
+            }
+
         }
 
         .right{
             flex: 1;
-            background: linear-gradient(rgb(41, 46, 30, 0.7), rgb(86, 77, 74, 0.7)), url("flag.jpg") center;
+            background: linear-gradient(rgb(41, 46, 30, 0.7), rgb(86, 77, 74, 0.7)), url("greeting.png") center;
             background-size: cover;
             min-width: 350px;
             padding: 30px;
@@ -69,7 +74,7 @@
                 margin: 0 auto;
             }
             & h2{
-                font-size: 20px;
+                font-size: 22px;
                 text-align: center;
             }
             & p{

@@ -14,6 +14,10 @@ const getUserPageData = () => {
     return axios.get(API_URL + "user", {headers: authHeader()});
 };
 
+const getJobs = () => {
+    return axios.get("http://localhost:8080/jobs", {headers: authHeader()});
+}
+
 /**
  * Fetches talent-manager specific data from the "manager" endpoint via an HTTP GET request to the API.
  * It includes the manager's authentication headers to ensure secure access
@@ -38,6 +42,7 @@ const getAdminPageData = () => {
 
 const UserService = {
     getUserPageData,
+    getJobs,
     getManagerPageData,
     getAdminPageData
 };

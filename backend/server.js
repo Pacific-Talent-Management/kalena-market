@@ -34,11 +34,13 @@ app.get("/", (req, res) => {
    res.json({ message: "Welcome to the Kalena backend."});
 });
 app.get("/users", db.getUsers);
+
+app.get("/jobs", db.getJobs);
    
 app.post("/users/signup", checkEmailExists, db.createUser);
 
 app.post("/users/signin", db.signin);
 
 app.listen(8080, () => {
-   console.log('Server running on port 8080');
+   console.log('Server running on port 8081');
 });

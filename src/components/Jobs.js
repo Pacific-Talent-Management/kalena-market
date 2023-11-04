@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import UserService from '../services/user.service';
+import {Link} from 'react-router-dom';
+import JobsModal from '../components/JobsModal.js';
 import './Jobs.css';
 
 const Jobs = () => {
@@ -7,6 +9,7 @@ const Jobs = () => {
     const [jobs, setJobs] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [likedJobs, setLikedJobs] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -25,6 +28,13 @@ const Jobs = () => {
         fetchData();
     }, []);
 
+    const toggleLike = (jobId) => {
+        setLikedJobs((prevLikedJobs) =>
+            ({...prevLikedJobs,
+            [jobId]: !prevLikedJobs[jobId],
+        }));
+    }
+
     if (loading){
         return <div>Loading...</div>
     }
@@ -36,31 +46,35 @@ const Jobs = () => {
         <div className = "job-contents">
           <div className="job-table">
             <h2>Current Job Opportunities</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Location</th>
-                        <th>Branch/MOS</th>
-                        <th>Tenure</th>
-                        <th>Job Rank</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {jobs.map(job => (
-                        <tr key = {job.id}>
-                            <td>{job.title}</td>
-                            <td>{job.location}</td>
-                            <td>{job.branch}</td>
-                            <td>{job.tenure}</td>
-                            <td>{job.job_rank}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            <div className="job-cards">
+                {jobs.map((job) => (
+                    <div className="job-card" key={job.id}>
+                        <div className="card-header">
+                            <h3>{job.title}</h3>
+                            <p>{job.description}</p>
+                        </div>
+                        <div className="card-content">
+                            <p><strong>Location: </strong>{job.location}</p>
+                            <p><strong>Branch/MOS: </strong>{job.branch}</p>
+                            <p><strong>Tenure: </strong>{job.tenure}</p>
+                            <p><strong>Job Rank: </strong>{job.job_rank}</p>
+                        </div>
+                        <div className="card-links">
+                            <button onClick={() => toggleLike(job.id)}
+                                    style={{color: likedJobs[job.id] ? 'red' : 'black'}}
+                            >
+                                {likedJobs[job.id] ? '❤️': '🤍'}
+                            </button>
+                            <JobsModal title={job.title} description={job.description} location={job.location} branch={job.branch} tenure={job.tenure} job_rank={job.job_rank} requirements={job.requirements}/>
+
+                        </div>
+
+                    </div>
+                ))}
+            </div>
           </div>
         </div>
       );
-};
+}
 
 export default Jobs;

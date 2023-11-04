@@ -115,7 +115,7 @@ const Login = () => {
               )}
 
               <CheckButton style={{display:"none"}}ref={checkBtn}/>
-              <Link to="/register">Forgot password?</Link>
+              <Link to="/registration">Forgot password?</Link>
             </Form>
             <img src="/images/kalenamarket.png" alt="kalena-market-img" width="300px"/>
           </div>
@@ -125,7 +125,7 @@ const Login = () => {
             <h2>Pacific Talent Management Marketplace</h2>
             <p>Kalena Market is a dynamic platform where individuals nurture and showcase their unique skills and talents. Join us on a journey where your skills and ambitions meet endless possibilities. Find your path, connect with like-minded individuals, and unlock the full potential of your talents at Kalena Market.</p>
             <span>Don't have an account?</span>
-            <Link to="/register">Register</Link>
+            <Link to="/registration">Register</Link>
           </div>
 
         </div>

@@ -136,7 +136,7 @@ const validPassword = (value) => {
 };
 
 
-const Register = () => {
+const Registration = () => {
   const form = useRef();
   const checkBtn = useRef();
   let navigate = useNavigate();
@@ -288,4 +288,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Registration;

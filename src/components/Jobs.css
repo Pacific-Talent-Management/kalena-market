@@ -1,0 +1,58 @@
+h2{
+    color: #545454;
+    font-weight: bolder;
+    text-align: center;
+    margin: 50px;
+}
+
+.job-table {
+    margin:20px;
+
+    .job-card{
+        display: flex;
+        flex-direction: row;
+        width: 75%;
+        margin: 15px auto;
+        padding: 10px;
+        min-width: 500px;
+        background-color: #FFFFFF;
+        border: 2px lightgrey solid;
+        border-radius: 10px;
+        justify-content: center;
+
+        .card-header{
+            flex: 2;
+            padding: 0 5px;
+
+            & h3{
+                color: #545454;
+                font-size: 26px;
+                font-weight: bolder;
+            }
+        }
+        .card-content{
+            flex: 1;
+            padding: 0 5px;
+        }
+        .card-links{
+            display: flex;
+            flex-direction: column;
+            gap: 100px;
+
+            & button{
+                background-color: transparent;
+                border: none;
+            }
+            & a {
+                color: #7D7C84;
+                font-size: 20px;
+                font-weight: bolder;
+                text-decoration: none;
+                text-align: center;
+            }
+        }
+
+
+
+    }
+}

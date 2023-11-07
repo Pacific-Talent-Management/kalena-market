@@ -99,6 +99,13 @@ function signin(request, response) {
    });
 }
 
+function getJobs(request, response) {
+   let sql = 'select * from jobs';
+   connection.query(sql, function(err, results, fields) {
+      response.status(200).json(results);
+   });
+}
+
 function getUsers(request, response) {
    let sql = 'select * from users';
    connection.query(sql, function(err, results, fields) {
@@ -106,4 +113,4 @@ function getUsers(request, response) {
    });
 }
 
-module.exports = { createUser, signin, getUsers };
+module.exports = { createUser, signin, getUsers, getJobs };

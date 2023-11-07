@@ -1,0 +1,49 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
+.profile{
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: center;
+    margin: 50px;
+    .left{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        .profile-picture{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            & img{
+                width: 250px;
+                border: 1px solid #545454;
+                border-radius: 50%;
+            }
+
+        }
+
+        & .user-data{
+        }
+
+        & a {
+            color: #7D7C84;
+            font-size: 14px;
+            font-weight: bolder;
+            text-decoration: none;
+            text-align: right;
+            & i{
+                font-size: 20px;
+            }
+        }
+        & a:hover{
+            color: dodgerblue;
+        }
+
+    }
+
+    .right{
+        flex: 1;
+        margin: 50px;
+    }
+}

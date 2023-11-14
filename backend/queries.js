@@ -113,4 +113,19 @@ function getUsers(request, response) {
    });
 }
 
-module.exports = { createUser, signin, getUsers, getJobs };
+function editUsers(request, response) {
+   const id = request.params.id;
+   let sql = "UPDATE users SET 'location'=?, 'rank'=?, WHERE id = ?";
+
+   const values = [
+       req.body.location,
+       req.body.rank,
+   ];
+
+   db.query(q, [...values, userID], (err, data) => {
+      if (err) return response.send(err);
+      return response.json(data);
+   });
+}
+
+module.exports = { createUser, signin, getUsers, getJobs, editUsers };

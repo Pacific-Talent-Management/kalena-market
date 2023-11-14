@@ -14,6 +14,9 @@ create table users(
    phone_number varchar(20),
    email varchar(100) unique,
    password varchar(255),
+   rank varchar(60),
+   location varchar(60),
+   image varchar(60),
    primary key (id)
 );
 create table roles(

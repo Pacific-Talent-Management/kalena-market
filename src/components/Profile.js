@@ -3,6 +3,7 @@ import AuthService from '../services/auth.service';
 import {Link} from 'react-router-dom';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import EditProfileModal from '../components/EditProfileModal.js'
 import './Profile.css';
 
 const Profile= () => {
@@ -39,8 +40,7 @@ const Profile= () => {
                     <p><strong>Email: </strong>{email}</p>
                 </div>
 
-                <Link>Edit Profile  <i className="bi bi-gear-wide"></i></Link>
-
+                <EditProfileModal id={currentUser.id} location={currentUser.location} rank={currentUser.rank}/>
 
 
             </div>

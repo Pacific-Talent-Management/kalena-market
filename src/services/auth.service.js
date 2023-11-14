@@ -21,6 +21,7 @@ const register = (first_name, last_name, phone_number, email, password) => {
     });
 };
 
+
 /**
  * 
  * @param {string} email - The user's email address
@@ -53,6 +54,17 @@ const logout = () => {
 const getCurrentUser = () => {
     return JSON.parse(localStorage.getItem("user"));
 }
+
+/**
+ * Updates user profile data
+ */
+const update = (location, rank) => {
+    return axios.put(API_URL + "profile",{
+        location,
+        rank
+    });
+};
+
 /**
  * AuthService provides methods for user registration, login, logout, and
  * retrieving the current user.
@@ -61,7 +73,8 @@ const AuthService = {
     register,
     login,
     logout,
-    getCurrentUser
+    getCurrentUser,
+    update
 };
 
 export default AuthService;

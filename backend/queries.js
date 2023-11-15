@@ -91,6 +91,8 @@ function signin(request, response) {
                last_name: results[0].last_name,
                phone_number: results[0].phone_number,
                email: results[0].email,
+               location: results[0].location,
+               user_rank: results[0].user_rank,
                roles: added_roles,
                accessToken: token
             });
@@ -115,14 +117,16 @@ function getUsers(request, response) {
 
 function editUsers(request, response) {
    const id = request.params.id;
-   let sql = "UPDATE users SET 'location'=?, 'rank'=?, WHERE id = ?";
+   let sql = "UPDATE users SET 'location'=?, 'user_rank'=?," + 
+      "WHERE id = ?";
 
    const values = [
-       req.body.location,
-       req.body.rank,
+       request.body.location,
+       request.body.user_rank,
+       id
    ];
 
-   db.query(q, [...values, userID], (err, data) => {
+   connection.query(sql, [values], (err, data) => {
       if (err) return response.send(err);
       return response.json(data);
    });

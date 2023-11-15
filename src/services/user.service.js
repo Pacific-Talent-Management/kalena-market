@@ -1,7 +1,7 @@
 import axios from "axios";
 import authHeader from "./auth-header";
 
-const API_URL = "http://localhost:8080/api/test";
+const API_URL = "http://localhost:8080/";
 
 /**
  * Fetches user-specific data from the "user" endpoint via an HTTP GET request to the API.
@@ -15,7 +15,12 @@ const getUserPageData = () => {
 };
 
 const getJobs = () => {
-    return axios.get("http://localhost:8080/jobs", {headers: authHeader()});
+    return axios.get(API_URL + "jobs", {headers: authHeader()});
+}
+
+const updateUser = (userId, userData) => {
+    return axios.put(API_URL + `users/${userId}`,
+        userData, {headers: authHeader()});
 }
 
 /**
@@ -44,7 +49,8 @@ const UserService = {
     getUserPageData,
     getJobs,
     getManagerPageData,
-    getAdminPageData
+    getAdminPageData,
+    updateUser,
 };
 
 export default UserService;

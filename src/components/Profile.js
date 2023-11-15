@@ -8,14 +8,15 @@ import './Profile.css';
 
 const Profile= () => {
     const currentUser = AuthService.getCurrentUser();
+
     const name = currentUser.first_name + " " +currentUser.last_name;
     const phone = "(" + currentUser.phone_number.slice(0,3) + ") " + currentUser.phone_number.slice(3,6) + "-" + currentUser.phone_number.slice(6,10);
     const email = currentUser.email;
-    let rank = currentUser.rank;
+    let user_rank = currentUser.user_rank;
     let location = currentUser.location;
     let image = currentUser.image;
-    if(rank == null) {
-        rank = "edit profile";
+    if(user_rank == null) {
+        user_rank = "edit profile";
     }
     if(location == null) {
         location = "edit profile";
@@ -23,7 +24,7 @@ const Profile= () => {
     if(image == null) {
         image = "/images/userProfile.png";
     }
-
+    
     return (
         <div className="profile">
 
@@ -34,7 +35,7 @@ const Profile= () => {
                 </div>
                 <div className="user-data">
                     <p><strong>Name: </strong>{name}</p>
-                    <p><strong>Rank: </strong>{rank}</p>
+                    <p><strong>Rank: </strong>{user_rank}</p>
                     <p><strong>Location: </strong>{location}</p>
                     <p><strong>Phone Number: </strong>{phone}</p>
                     <p><strong>Email: </strong>{email}</p>

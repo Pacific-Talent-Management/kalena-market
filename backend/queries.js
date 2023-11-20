@@ -115,21 +115,53 @@ function getUsers(request, response) {
    });
 }
 
-function editUsers(request, response) {
+function loadUser(request, response) {
+   const id = request.params.id
+   let sql = 'select * from users where id = ?';
+   connection.query(sql, id, function(err, results, fields) {
+      response.status(200).json(results);
+   });
+}
+
+function editUser(request, response) {
+   const {first_name, last_name, phone_number, email, password, user_rank, location, link} = request.body;
+   const hash = bcrypt.hashSync(password, 10);
    const id = request.params.id;
-   let sql = "UPDATE users SET 'location'=?, 'user_rank'=?," + 
-      "WHERE id = ?";
+   let sql = "update users SET  first_name=?, last_name=?, phone_number=?, email=?, password=?, user_rank=?, location=?, link=? WHERE id=?";
 
    const values = [
-       request.body.location,
-       request.body.user_rank,
-       id
+      first_name,
+      last_name,
+      phone_number,
+      email,
+      hash,
+      user_rank,
+      location,
+      link,
+      id
    ];
 
-   connection.query(sql, [values], (err, data) => {
+   connection.query(sql, values, (err, data) => {
       if (err) return response.send(err);
       return response.json(data);
    });
 }
 
-module.exports = { createUser, signin, getUsers, getJobs, editUsers };
+function updateImage(request, response) {
+   const {image} = request.body;
+   const id = request.params.id;
+   let sql = "update users SET image=? WHERE id=?";
+
+   const values = [
+      image,
+      id
+   ];
+
+   connection.query(sql, values, (err, data) => {
+      if (err) return response.send(err);
+      return response.json(data);
+   });
+}
+
+
+module.exports = { createUser, signin, getUsers, getJobs, editUser, loadUser, updateImage};

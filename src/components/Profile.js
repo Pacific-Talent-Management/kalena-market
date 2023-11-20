@@ -14,7 +14,9 @@ const Profile= () => {
     const email = currentUser.email;
     let user_rank = currentUser.user_rank;
     let location = currentUser.location;
+    let website = currentUser.link;
     let image = currentUser.image;
+    console.log(currentUser.image);
     if(user_rank == null) {
         user_rank = "edit profile";
     }
@@ -23,6 +25,9 @@ const Profile= () => {
     }
     if(image == null) {
         image = "/images/userProfile.png";
+    }
+    if(website == null) {
+        website = "error";
     }
     
     return (
@@ -39,9 +44,10 @@ const Profile= () => {
                     <p><strong>Location: </strong>{location}</p>
                     <p><strong>Phone Number: </strong>{phone}</p>
                     <p><strong>Email: </strong>{email}</p>
+                    <Link to={website} target="_blank"><strong>Personal Website</strong></Link>
                 </div>
 
-                <EditProfileModal id={currentUser.id} location={currentUser.location} rank={currentUser.rank}/>
+                <EditProfileModal />
 
 
             </div>

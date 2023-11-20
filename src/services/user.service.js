@@ -19,7 +19,7 @@ const getJobs = () => {
 }
 
 const updateUser = (userId, userData) => {
-    return axios.put(API_URL + `users/${userId}`,
+    return axios.patch(API_URL + `users/${userId}`,
         userData, {headers: authHeader()});
 }
 

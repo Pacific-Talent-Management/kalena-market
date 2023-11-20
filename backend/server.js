@@ -41,7 +41,11 @@ app.post("/users/signup", checkEmailExists, db.createUser);
 
 app.post("/users/signin", db.signin);
 
-app.put("/users/:id", db.editUsers);
+app.get("/users/:id", db.loadUser);
+
+app.patch("/users/:id", db.editUser);
+
+app.patch("/users/:id", db.updateImage);
 
 app.listen(8080, () => {
    console.log('Server running on port 8081');

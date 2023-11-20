@@ -17,6 +17,7 @@ create table users(
    user_rank varchar(60),
    location varchar(60),
    image varchar(60),
+   link varchar(60),
    primary key (id)
 );
 create table roles(
@@ -42,3 +43,4 @@ insert into roles (id,role) values
    (1, 'user'),
    (2, 'manager'),
    (3, 'admin');
+

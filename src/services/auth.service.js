@@ -56,16 +56,6 @@ const getCurrentUser = () => {
 }
 
 /**
- * Updates user profile data
- */
-const update = (location, rank) => {
-    return axios.put(API_URL + "profile",{
-        location,
-        rank
-    });
-};
-
-/**
  * AuthService provides methods for user registration, login, logout, and
  * retrieving the current user.
  */
@@ -74,7 +64,6 @@ const AuthService = {
     login,
     logout,
     getCurrentUser,
-    update
 };
 
 export default AuthService;

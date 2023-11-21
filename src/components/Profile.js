@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import EditProfileModal from '../components/EditProfileModal.js'
+import Favorites from '../components/Favorites.js'
 import './Profile.css';
 
 const Profile= () => {
@@ -54,13 +55,13 @@ const Profile= () => {
 
             <div className="right">
                 <Tabs
-                    defaultActiveKey="profile"
+                    defaultActiveKey="favorites"
                     id="justify-tab-example"
                     className="mb-3"
                     justify
                 >
                     <Tab eventKey="favorites" title="Favorites">
-                        Tab content for favorited vacancies
+                        <Favorites/>
                     </Tab>
                     <Tab eventKey="applied" title="Applied">
                         Tab content for vacancies applied

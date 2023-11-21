@@ -164,7 +164,7 @@ function updateImage(request, response) {
 }
 
 function getLikes(request, response) {
-   let sql = 'select id, job_id from likes where user_id=?';
+   let sql = 'select id, job_id from likes where user_id=? order by job_id';
    const user_id = request.params.user_id;
    connection.query(sql, user_id, function(err, results, fields) {
       response.status(200).json(results);

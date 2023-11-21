@@ -13,8 +13,7 @@ function Hearts(props) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/likes/"+currentUser.id)
-        .then(res => {
+            AuthService.getLikes(currentUser.id).then(res => {
             let listOfFaves = [];
             //console.log(res.data);
             for(let i in res.data) {

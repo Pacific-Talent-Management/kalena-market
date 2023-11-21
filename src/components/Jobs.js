@@ -1,10 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import UserService from '../services/user.service';
+import AuthService from '../services/auth.service';
 import {Link} from 'react-router-dom';
 import JobsModal from '../components/JobsModal.js';
+import Hearts from '../components/Hearts.js';
 import './Jobs.css';
 
 const Jobs = () => {
+    const currentUser = AuthService.getCurrentUser();
     
     const [jobs, setJobs] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -47,6 +50,7 @@ const Jobs = () => {
           <div className="job-table">
             <h2>Current Job Opportunities</h2>
             <div className="job-cards">
+
                 {jobs.map((job) => (
                     <div className="job-card" key={job.id}>
                         <div className="card-header">
@@ -60,12 +64,8 @@ const Jobs = () => {
                             <p><strong>Job Rank: </strong>{job.job_rank}</p>
                         </div>
                         <div className="card-links">
-                            <button onClick={() => toggleLike(job.id)}
-                                    style={{color: likedJobs[job.id] ? 'red' : 'black'}}
-                            >
-                                {likedJobs[job.id] ? '❤️': '🤍'}
-                            </button>
-                            <JobsModal title={job.title} description={job.description} location={job.location} branch={job.branch} tenure={job.tenure} job_rank={job.job_rank} requirements={job.requirements}/>
+                            <Hearts user_id = {currentUser.id} job_id = {job.id}/>
+                            <JobsModal id={job.id} title={job.title} description={job.description} location={job.location} branch={job.branch} tenure={job.tenure} job_rank={job.job_rank} requirements={job.requirements}/>
 
                         </div>
 

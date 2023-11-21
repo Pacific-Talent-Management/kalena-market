@@ -55,6 +55,18 @@ const getCurrentUser = () => {
     return JSON.parse(localStorage.getItem("user"));
 }
 
+const postLike = (user_id, job_id) => {
+    return axios.post("http://localhost:8080/likes/likeJob",{
+        user_id,
+        job_id
+    }).then((response) => {
+        return response.data;
+    });
+};
+
+const deleteLike = (id) => {
+    return axios.delete("http://localhost:8080/" + `likes/${id}`,id);
+};
 /**
  * AuthService provides methods for user registration, login, logout, and
  * retrieving the current user.
@@ -64,6 +76,8 @@ const AuthService = {
     login,
     logout,
     getCurrentUser,
+    postLike,
+    deleteLike,
 };
 
 export default AuthService;

@@ -8,7 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 import {Link} from 'react-router-dom';
 import AuthService from "../services/auth.service";
 import UserService from '../services/user.service';
-import './EditProfileModal.css';
+//import './EditProfileModal.css';
 
 const required = (value) => {
   if (!value) {

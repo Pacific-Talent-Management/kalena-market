@@ -7,17 +7,6 @@ const Home = () => {
 
     return (
       <div className = "home-contents">
-        <div className="army-bar">
-          <div>
-            <img src="/images/usar_logo1_rev_rgb_300ppi.png" width="200px" className="logo"></img>
-            <a href="/home" className="nav-bar">HOME</a>
-            <a href="/profile" className="nav-bar">PROFILE</a>
-            <a href="/home" className="nav-bar">JOB OPPORTUNITIES</a>
-            <a href="/home" className="nav-bar">RESUME</a>
-            <a href="/home" className="nav-bar">SIGN-OUT</a>
-          </div>
-        </div>
-
         <div className="header">
           <div className='wrapl'>
             <img src="/images/soldiers/230702-A-GS113-011.jpg" height="350px" margin-bottom="50px"></img>

@@ -1,12 +1,8 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import {Link} from 'react-router-dom';
-import Hearts from '../components/Hearts.js';
-import AuthService from '../services/auth.service';
 
 function JobsModal(props) {
-    const currentUser = AuthService.getCurrentUser();
     
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -14,7 +10,7 @@ function JobsModal(props) {
 
     return (
         <>
-            <Link className="more" onClick={handleShow}>...</Link>
+            <i className='more fs-1' onClick={handleShow}>...</i>
 
             <Modal
                 size="lg"
@@ -40,7 +36,6 @@ function JobsModal(props) {
 
                 </Modal.Body>
                 <Modal.Footer>
-                    <Hearts user_id = {currentUser.id} job_id = {props.id}/>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>

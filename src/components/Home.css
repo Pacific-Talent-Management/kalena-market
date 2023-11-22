@@ -1,26 +1,4 @@
-.army-bar {
-    background-color: black;
-    text-align: right;
-    padding: 30px;
-}
 
-.nav-bar {
-    color: white;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 20px;
-    text-decoration: none;
-}
-
-.nav-bar:hover {
-    color:#FFCC30;
-    background-color: black;
-}
-
-.logo {
-    text-align: left;
-    margin-right: 250px;
-}
 
 .header {
     background-color: #FFCC30;

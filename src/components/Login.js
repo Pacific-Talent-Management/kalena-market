@@ -72,7 +72,7 @@ const Login = () => {
   };
 
   return (
-    <div className = "login">
+    <div className='login'>
       <Container className="py-3">
         <div className="card">
 

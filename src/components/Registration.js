@@ -277,7 +277,7 @@ const Registration = () => {
                     <h1>Welcome!</h1>
                     <p>Whether you've a professional looking to advance your career, an employer seeking top-tier talent, or an enthusiast eager to explore a marketplace of skills, Kalena Market is your destination. </p>
                     <span>Already have an account?</span>
-                    <Link className="link" to="/login">Login</Link>
+                    <Link className="link" to="/">Login</Link>
 
                 </div>
 

@@ -6,10 +6,8 @@ import { isEmail } from "validator";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import {Link} from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 import AuthService from "../services/auth.service";
 import UserService from '../services/user.service';
-import Accordion from "react-bootstrap/Accordion";
 import './EditProfileModal.css';
 
 const required = (value) => {
@@ -127,18 +125,6 @@ const validEmail = (value) => {
     }
 };
 
-const validPassword = (value) => {
-    if (value.length < 6 || value.length > 40) {
-        return (
-            <div className="alert alert-danger" role="alert">
-                The password must be between 6 and 40 characters.
-            </div>
-        );
-    }
-};
-
-
-
 
 function EditProfileModal(props) {
     //Modal variables
@@ -150,7 +136,6 @@ function EditProfileModal(props) {
     //Form variables
     const form = useRef();
     const checkBtn = useRef();
-    let navigate = useNavigate();
 
     const [userData, setUserData] = useState([]);
     const [error, setError] = useState(null);
@@ -161,13 +146,8 @@ function EditProfileModal(props) {
     const [location, setLocation] = useState("");
     const [link, setLink] = useState("");
     const [user_rank, setRank] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmpassword, setConfirmPassword] = useState("");
     const [successful, setSuccessful] = useState(false);
     const [message, setMessage] = useState("");
-    const [match, setMatch] = useState("");
-    const [confirmMsg, setConfirmMsg] = useState("")
-    const [toggle, setToggle] = useState(false)
 
 
     const onChangeFirstname = (e) => {
@@ -191,29 +171,8 @@ function EditProfileModal(props) {
     const onChangeLink = (e) => {
         setLink(e.target.value);
     }
-    const onChangePassword = (e) => {
-        const password = e.target.value.trim();
-        setPassword(password);
-    };
-    const onChangeConfirmPassword = (e) => {
-        const confirmpassword = e.target.value.trim();
-        if (password !== confirmpassword){
-        	setMatch(false);
-            setConfirmMsg("Passwords do not match. Re-type password.");
-        }else{
-            setMatch(true);
-            setConfirmMsg("Passwords match.");
-            setConfirmPassword(confirmpassword);
-        }
 
-    };
-    const onChangeToggle = (e) => {
-     if(toggle){
-        setToggle(false);
-        }else{
-        setToggle(true);
-        }
-    };
+
     const fetchData = async() => {
     
         try{
@@ -245,38 +204,32 @@ function EditProfileModal(props) {
             if (userData.link!== null) {
                 setLink(userData.link);
             }
-            if (userData.password!== null) {
-                setPassword(userData.password);
-            }
             setUserData(userData);
 
         }
         catch (err) {
             console.error("Error fetching user profile data:", err);
             setError(err);
+            console.log(error);
         }
     }
     useEffect(() => {
         fetchData();
-    },[])
+    }, [])
     
 
 	async function handleSubmit(e){
 		e.preventDefault();
 		setMessage("");
 	    	setSuccessful(false);
-	    	
-	    	
-			console.log(toggle);
 
-		if (checkBtn.current.context._errors.length === 0 && !toggle) {
+		if (checkBtn.current.context._errors.length === 0) {
 			
 		
 		    userData.first_name = first_name;
 		    userData.last_name = last_name;
 		    userData.phone_number = phone_number;
 		    userData.email = email;
-		    userData.password = password;
 		    userData.location = location;
 		    userData.user_rank = user_rank;
 		    userData.link = link;
@@ -304,14 +257,12 @@ function EditProfileModal(props) {
 		}else{
 			setMessage("Missing Requirements");
 	    		setSuccessful(false);
-	    		setMatch(false);
-            		setConfirmMsg("Passwords do not match.");
 		}
 
 	    }
 	    
 	    async function closeModal(e){
-	    	if (successful == true){
+	    	if (successful === true){
 	    		window.location.reload(false);
 	    	}else{
 	   	 	handleClose();
@@ -399,37 +350,7 @@ function EditProfileModal(props) {
                     	</div>
                     
                     </div>
-                    	
-                    
-                        
-
-                        <Accordion>
-                            <Accordion.Item eventKey="0">
-                                <Accordion.Header onClick={onChangeToggle}>Change Password</Accordion.Header>
-                                <Accordion.Body>
-                                    <p>Password*</p>
-                                    <Input
-                                        type="password"
-                                        value={password}
-                                        onChange={onChangePassword}
-                                        validations={[required, validPassword]}
-                                    />
-                                    <p>Confirm Password*</p>
-                                    <Input
-                                        type="password"
-                                        value={confirmpassword}
-                                        onChange={onChangeConfirmPassword}
-                                    />
-                                    {confirmMsg && (
-                                        <div className={match ? "alert alert-success":"alert alert-danger"}role="alert">
-                                            {confirmMsg}
-                                        </div>
-                                    )}
-                                </Accordion.Body>
-                            </Accordion.Item>
-                        </Accordion>
-                    
-			
+ 
                 </Modal.Body>
                 <Modal.Footer>
                 		{message && (

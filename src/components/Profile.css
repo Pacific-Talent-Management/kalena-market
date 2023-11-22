@@ -27,17 +27,15 @@
         }
 
         & a {
-            color: #7D7C84;
-            font-size: 14px;
-            font-weight: bolder;
+            color: dodgerblue;
+            font-size: 16px;
             text-decoration: none;
-            text-align: right;
             & i{
                 font-size: 20px;
             }
         }
         & a:hover{
-            color: dodgerblue;
+            color: #7D7C84;
         }
 
     }
@@ -46,4 +44,9 @@
         flex: 1;
         margin: 50px;
     }
+
 }
+
+    .edit{
+        text-align: right;
+     }

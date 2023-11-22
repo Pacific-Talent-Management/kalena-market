@@ -124,20 +124,35 @@ function loadUser(request, response) {
 }
 
 function editUser(request, response) {
-   const {first_name, last_name, phone_number, email, password, user_rank, location, link} = request.body;
-   const hash = bcrypt.hashSync(password, 10);
+   const {first_name, last_name, phone_number, email, user_rank, location, link} = request.body;
    const id = request.params.id;
-   let sql = "update users SET  first_name=?, last_name=?, phone_number=?, email=?, password=?, user_rank=?, location=?, link=? WHERE id=?";
+   let sql = "update users SET  first_name=?, last_name=?, phone_number=?, email=?, user_rank=?, location=?, link=? WHERE id=?";
 
    const values = [
       first_name,
       last_name,
       phone_number,
       email,
-      hash,
       user_rank,
       location,
       link,
+      id
+   ];
+
+   connection.query(sql, values, (err, data) => {
+      if (err) return response.send(err);
+      return response.json(data);
+   });
+}
+
+function editPass(request, response) {
+   const {password} = request.body;
+   const id = request.params.id;
+   const hash = bcrypt.hashSync(password, 10);
+   let sql = "update users SET  password=? WHERE id=?";
+
+   const values = [
+      hash,
       id
    ];
 
@@ -196,4 +211,4 @@ function unlikeJob(request, response) {
 
 
 
-module.exports = { createUser, signin, getUsers, getJobs, editUser, loadUser, updateImage, getLikes, likeJob, unlikeJob };
+module.exports = { createUser, signin, getUsers, getJobs, editUser, loadUser, editPass, updateImage, getLikes, likeJob, unlikeJob };

@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import EditProfileModal from '../components/EditProfileModal.js'
+import ChangePassModal from '../components/ChangePassModal.js'
 import Favorites from '../components/Favorites.js'
 import './Profile.css';
 
@@ -47,9 +48,13 @@ const Profile= () => {
                     <p><strong>Email: </strong>{email}</p>
                     <Link to={website} target="_blank"><strong>Personal Website</strong></Link>
                 </div>
-
+                
+                <div className="edit">
                 <EditProfileModal />
+		<ChangePassModal />
+                </div>
 
+                
 
             </div>
 

@@ -163,5 +163,37 @@ function updateImage(request, response) {
    });
 }
 
+function getLikes(request, response) {
+   let sql = 'select id, job_id from likes where user_id=? order by job_id';
+   const user_id = request.params.user_id;
+   connection.query(sql, user_id, function(err, results, fields) {
+      response.status(200).json(results);
+   });
+}
 
-module.exports = { createUser, signin, getUsers, getJobs, editUser, loadUser, updateImage};
+function likeJob(request, response) {
+   const {user_id, job_id} = request.body;
+   let sql = 'insert into likes (user_id, job_id) values (?, ?)';
+   let values = [
+      user_id,
+      job_id,
+     
+   ];
+   connection.query(sql, values, (err, data) => {
+      if (err) return response.send(err);
+      return response.json(data);
+   });
+}
+function unlikeJob(request, response) {
+   const id = request.params.id;
+   let sql = 'delete from likes where id=?';
+   connection.query(sql, id, (err, data) => {
+      if (err) return response.send(err);
+      return response.json(data);
+   });
+}
+
+
+
+
+module.exports = { createUser, signin, getUsers, getJobs, editUser, loadUser, updateImage, getLikes, likeJob, unlikeJob };

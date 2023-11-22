@@ -1,0 +1,19 @@
+i {
+	
+	color: lightgrey;
+	
+ }
+ i:hover {
+ 	color: pink;
+ }
+ 
+ .heart {
+ 	font-size: 25px;
+ 	border: none;
+ 	background-color: #fff;
+ }
+
+ 
+ .btnactive {
+ 	color: red;
+ }

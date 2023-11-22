@@ -47,6 +47,12 @@ app.patch("/users/:id", db.editUser);
 
 app.patch("/users/:id", db.updateImage);
 
+app.get("/likes/:user_id", db.getLikes);
+
+app.post("/likes/likeJob", db.likeJob);
+
+app.delete("/likes/:id", db.unlikeJob);
+
 app.listen(8080, () => {
    console.log('Server running on port 8081');
 });

@@ -1,0 +1,68 @@
+.modal-header{
+    .closeButton{
+    	width: 10px;
+    	height: 15px;
+   	background: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23000%27%3e%3cpath d=%27M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z%27/%3e%3c/svg%3e") center;
+   	
+   	background-repeat: no-repeat;
+   	
+   	border: none;
+   	opacity: 0.5;
+   	
+    }
+    .closeButton:hover{
+    	
+   	opacity: 0.75;
+   	
+    }
+}
+
+.modal-body {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center!important;
+    justify-content: center;
+    align-content: center;
+    
+    .editUser {
+    	display: flex;
+    	gap: 20px;
+    	min-width: 400px;
+    	flex-direction: row;
+    	.right{
+    		flex: 1;
+    	}
+    	
+    	.left{
+    		flex: 1;
+    	}
+    
+    }
+    p {
+    	margin: 0px;
+    }
+    input {
+    	border: 2px solid lightgrey;
+    	border-radius: 5px;
+    	padding: 0 10px;
+    	margin-bottom: 10px;
+    }
+    .alert {
+    	max-width: 300px;
+    	padding: 5px;
+    }
+    .accordion-button {
+    	font-weight: bolder;
+    	padding: 20px;
+    	margin-top: -40px;
+    	max-height: 25px;
+    	width: 300px;
+    	background-color: #fff;
+    	border-bottom: 2px solid lightgrey;
+    	--bs-accordion-btn-focus-box-shadow: none;
+    	--bs-accordion-inner-border-radius: none;
+    }
+    
+}

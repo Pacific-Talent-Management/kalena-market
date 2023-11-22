@@ -21,6 +21,7 @@ const register = (first_name, last_name, phone_number, email, password) => {
     });
 };
 
+
 /**
  * 
  * @param {string} email - The user's email address
@@ -53,6 +54,7 @@ const logout = () => {
 const getCurrentUser = () => {
     return JSON.parse(localStorage.getItem("user"));
 }
+
 /**
  * AuthService provides methods for user registration, login, logout, and
  * retrieving the current user.
@@ -61,7 +63,7 @@ const AuthService = {
     register,
     login,
     logout,
-    getCurrentUser
+    getCurrentUser,
 };
 
 export default AuthService;

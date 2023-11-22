@@ -14,6 +14,10 @@ create table users(
    phone_number varchar(20),
    email varchar(100) unique,
    password varchar(255),
+   user_rank varchar(60),
+   location varchar(60),
+   image varchar(60),
+   link varchar(60),
    primary key (id)
 );
 create table roles(
@@ -39,3 +43,4 @@ insert into roles (id,role) values
    (1, 'user'),
    (2, 'manager'),
    (3, 'admin');
+

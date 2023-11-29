@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Profile from './components/Profile';
 import Registration from './components/Registration'
 import Jobs from './components/Jobs';
+import Resumes from './components/Resumes';
 
 import {Routes, Route} from 'react-router-dom';
 
@@ -21,6 +22,7 @@ function App() {
           <Route path ="/profile" element={<Profile/>}/>
           <Route path ="/registration" element={<Registration/>}/>
           <Route path ="/jobs" element={<Jobs/>}/>
+          <Route path ="/resumes" element={<Resumes/>}/>
         </Routes>
       </div>
     </div>

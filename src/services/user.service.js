@@ -23,6 +23,14 @@ const updateUser = (userId, userData) => {
         userData, {headers: authHeader()});
 }
 
+const getResumeData = () => {
+    return axios.get(API_URL + "flask", {headers: authHeader()})
+};
+
+const uploadResumeData = () => {
+    return axios.post(API_URL + "resumes/upload", {headers:authHeader()})
+}
+
 /**
  * Fetches talent-manager specific data from the "manager" endpoint via an HTTP GET request to the API.
  * It includes the manager's authentication headers to ensure secure access
@@ -51,6 +59,8 @@ const UserService = {
     getManagerPageData,
     getAdminPageData,
     updateUser,
+    getResumeData,
+    uploadResumeData
 };
 
 export default UserService;

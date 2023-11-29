@@ -32,3 +32,12 @@ insert into jobs (title, description, location, branch, tenure, job_rank, requir
 
 insert into jobs (title, description, location, branch, tenure, job_rank, requirements) values
 ('Radar Repairer', 'Job description goes here', 'Saipan','QM', '6 months', 'specialist', 'Job requirement goes here');
+
+insert into jobs (title, description, location, branch, tenure, job_rank, requirements) values
+('Heavy Mobile Equipment Repairer', 'This position is a Military Technician position with the 9th Mission
+ Support Command, Branch Maintenance Activity 1, Equipment Concentration Site 168, United States Army Reserve
+  Theater Support Group, Pacific located at Fort Richardson, Alaska.', 'Alaska', 'n/a', 'Permanent', 'WG 9','Appointment may be subject to a suitability or fitness determination, as determined by a completed background investigation.
+THIS POSITION REQUIRES ACTIVE MEMBERSHIP AS A SOLDIER IN THE U.S. ARMY RESERVE (USAR).
+This position is subject to Drug Abuse Testing Program requirements.
+This position requires a Class A CDL within 180 days of employment.
+This position requires a medical examination prior to employment.');

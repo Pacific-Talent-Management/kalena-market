@@ -28,12 +28,12 @@ const App = () => {
       setShowModeratorBoard(user.roles.includes("manager"));
       setShowAdminBoard(user.roles.includes("admin"));
     }
-  });
+  }, []);
 
   const logOut = () => {
     AuthService.logout();
     window.location.href="/";
-  };
+  }
 
 
 

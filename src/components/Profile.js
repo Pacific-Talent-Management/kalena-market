@@ -32,9 +32,11 @@ const Profile = () => {
   if (image == null) {
     image = "/images/userProfile.png";
   }
-  if (website == null) {
-    website = "error";
+	
+  if(website.slice(0, 8) !== "https://") {
+  	website = "https://" + website;
   }
+ 
 
   return (
     <Row className="p-5 justify-content-center">
@@ -76,9 +78,12 @@ const Profile = () => {
             {email}
           </p>
           {website ? (
-            <Link to={website} target="_blank">
-              <strong>Personal Website</strong>
-            </Link>
+          	
+          	<Link to={website} target="_blank">
+              	<strong>Personal Website</strong>
+            	</Link>
+          	
+            
           ) : (
             <Link to={`/error`} target="_blank">
               <strong>Personal Website</strong>

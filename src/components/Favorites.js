@@ -78,14 +78,14 @@ const Favorites = () => {
     const empty = filtered.length === 0;
 
     return (
-        <div className='d-flex justify-content-center text-center'>
+        <div className='d-flex justify-content-center'>
             {empty? (
                 <Container className="py-5 w-100">
                     <p>You have no favorites, go to the <Link to="/jobs">jobs</Link> page to add to favorites.</p>
                     <img className='opacity-50 border border-sceondary border-5 rounded-4' src="/images/emptyFaves.gif" alt="Intructions to like a job" width="500px"/> 
                 </Container>
             ):(
-                    <div className='w-75'>
+                    <div className='p-3'>
                     <div className="job-cards">
                     {filtered.map((job) => (
 
@@ -100,20 +100,36 @@ const Favorites = () => {
                                 <p>{job.description}</p>
                               </Row>
                               <Row>
-                                <div className='d-flex justify-content-center'>
-                                  <Row className='w-50'>
-                                    <p><strong>Location: </strong>{job.location}</p>
-                                    <p><strong>Branch/MOS: </strong>{job.branch}</p>
-                                  </Row>
-                                  <Row className='w-50'>
-                                    <p><strong>Tenure: </strong>{job.tenure}</p>
-                                    <p><strong>Job Rank: </strong>{job.job_rank}</p>
-                                  </Row>
-                                </div>
+                              <div className='d-flex justify-content-center'>
+                              <Row className='w-50'>
+                                <p><strong>Open & Closing Dates: </strong>{job.open} - {job.close}</p>
+                                <p><strong>Pay Scale & Grade: </strong>{job.pay}</p>
                               </Row>
+                              <Row className='w-50'>
+                                <p><strong>Location: </strong>{job.location}</p>
+                                <p><strong>Schedule: </strong>{job.schedule}</p>
+                              </Row>
+                              </div>
+                            </Row>
                             </Card.Body>
                             <Card.Footer className='d-flex justify-content-between border-top-0 py-0 bg-light'>
-                                <JobsModal id={job.id} title={job.title} description={job.description} location={job.location} branch={job.branch} tenure={job.tenure} job_rank={job.job_rank} requirements={job.requirements}/>
+                                <JobsModal 
+                            	id={job.id} 
+                            	title={job.title} 
+                            	description={job.description} 
+                            	open={job.open}
+                            	close={job.close}
+                            	pay={job.pay} 
+                            	location={job.location} 
+                            	remote={job.remote} 
+                            	travel={job.travel} 
+                            	schedule={job.schedule} 
+                            	duties={job.duties}
+                            	conditions={job.conditions}
+                            	qualifications={job.qualifications}
+                            	education={job.education}
+                            	additional={job.additional}
+                            	/> 
                                 <Hearts user_id = {currentUser.id} job_id = {job.id}/>
                             </Card.Footer>
                         </Card>

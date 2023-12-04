@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import Button from 'react-bootstrap/Button';
 import AuthService from '../services/auth.service';
 import './Heart.css';
 
@@ -89,12 +90,12 @@ function Hearts(props) {
     return (
     	<div>
     	<React.StrictMode>
-	    	<btn onClick={handleLike} className="bg-transparent border-0 fs-3">
+	    	<Button onClick={handleLike} className="bg-transparent border-0 fs-3">
 	    		{likeState ? 
-	    			(<i class="bi bi-suit-heart-fill btnactive"></i>) 
-	    			:(<i class="bi bi-suit-heart-fill"></i>)
+	    			(<i className="bi bi-suit-heart-fill btnactive"></i>) 
+	    			:(<i className="bi bi-suit-heart-fill"></i>)
 	    		}
-	    	</btn>
+	    	</Button>
     	</React.StrictMode>
     	</div>
 	    

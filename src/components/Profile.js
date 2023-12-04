@@ -32,10 +32,14 @@ const Profile = () => {
   if (image == null) {
     image = "/images/userProfile.png";
   }
-	
-  if(website.slice(0, 8) !== "https://") {
+  
+  if(website) {
+  	if(website.slice(0, 8) !== "https://") {
   	website = "https://" + website;
+     	}
   }
+	
+  
  
 
   return (
@@ -109,7 +113,7 @@ const Profile = () => {
         <Tabs defaultActiveKey="favorites" id="justify-tab-example" justify>
           <Tab
             className="border border-1 py-4 scrollbar overflow-auto w-100"
-            style={{ height: "650px" }}
+            style={{ height: "100vh" }}
             eventKey="favorites"
             title="Favorites"
           >
@@ -117,7 +121,7 @@ const Profile = () => {
           </Tab>
           <Tab
             className="border border-1 py-4 scrollbar overflow-auto w-100"
-            style={{ height: "650px" }}
+            style={{ height: "100vh" }}
             eventKey="applied"
             title="Applied"
           >
@@ -125,7 +129,7 @@ const Profile = () => {
           </Tab>
           <Tab
             className="border border-1 py-4 scrollbar overflow-auto w-100"
-            style={{ height: "650px" }}
+            style={{ height: "100vh" }}
             eventKey="resumes"
             title="Resumes"
           >

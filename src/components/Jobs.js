@@ -19,7 +19,7 @@ const Jobs = () => {
             try {
                 const response = await UserService.getJobs();
                 const jobData = response.data;
-                console.log(jobData);
+                //console.log(jobData);
                 setJobs(jobData);
                 setLoading(false);
             }catch (err) {
@@ -31,14 +31,7 @@ const Jobs = () => {
         fetchData();
     }, []);
 
-    /*
-    const toggleLike = (jobId) => {
-        setLikedJobs((prevLikedJobs) =>
-            ({...prevLikedJobs,
-            [jobId]: !prevLikedJobs[jobId],
-        }));
-    }
-    */
+
     if (loading){
         return <div>Loading...</div>
     }
@@ -66,19 +59,37 @@ const Jobs = () => {
                             <Row>
                               <div className='d-flex justify-content-center'>
                               <Row className='w-50'>
-                                <p><strong>Location: </strong>{job.location}</p>
-                                <p><strong>Branch/MOS: </strong>{job.branch}</p>
+                                <p><strong>Open & Closing Dates: </strong>{job.open} - {job.close}</p>
+                                <p><strong>Pay Scale & Grade: </strong>{job.pay}</p>
                               </Row>
                               <Row className='w-50'>
-                                <p><strong>Tenure: </strong>{job.tenure}</p>
-                                <p><strong>Job Rank: </strong>{job.job_rank}</p>
+                                <p><strong>Location: </strong>{job.location}</p>
+                                <p><strong>Schedule: </strong>{job.schedule}</p>
                               </Row>
                               </div>
                             </Row>
                         </Card.Body>
                         <Card.Footer className='d-flex justify-content-between border-top-0 py-0 bg-light'>
-                            <JobsModal id={job.id} title={job.title} description={job.description} location={job.location} branch={job.branch} tenure={job.tenure} job_rank={job.job_rank} requirements={job.requirements}/>
+                        
+                            <JobsModal 
+                            	id={job.id} 
+                            	title={job.title} 
+                            	description={job.description} 
+                            	open={job.open}
+                            	close={job.close}
+                            	pay={job.pay} 
+                            	location={job.location} 
+                            	remote={job.remote} 
+                            	travel={job.travel} 
+                            	schedule={job.schedule} 
+                            	duties={job.duties}
+                            	conditions={job.conditions}
+                            	qualifications={job.qualifications}
+                            	education={job.education}
+                            	additional={job.additional}
+                            	/> 
                             <Hearts user_id = {currentUser.id} job_id = {job.id}/>
+                            
                         </Card.Footer>
                     </Card>
                     </div>

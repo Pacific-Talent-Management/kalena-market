@@ -1,42 +1,40 @@
-
-
 .header {
-    background-color: #FFCC30;
-    color: #ffffff;
-    padding-top: 30px;
-    padding-bottom: 100px;
-    padding-left: 100px;
+  background-color: #ffcc30;
+  color: #ffffff;
+  padding-top: 30px;
+  padding-bottom: 100px;
+  padding-left: 100px;
 }
 
 .critical-vac {
-    background-color: #ffffff;
-    border-color: #ffffff;
-    border-radius: 5px;
-    text-align:center;
-    padding:10px;
-    margin-top: 75px;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  margin-top: 75px;
 }
 
 .critical-vac:hover {
-    background-color:black;
-    color:white;
-    transition: 0.2s;
+  background-color: black;
+  color: white;
+  transition: 0.2s;
 }
 
 .wrapl {
-    float: left;
-    margin: 30px;
+  float: left;
+  margin: 30px;
 }
 
 .main-left {
-    text-align: left;
-    margin-right: 520px;
-    margin-left: 150px;
-    padding: 30px;
-    color:#FFCC30;
+  text-align: left;
+  margin-right: 520px;
+  margin-left: 150px;
+  padding: 30px;
+  color: #545454;
 }
 
 .main-left-carousel {
-    margin-left: 200px;
-    margin-bottom: 50px;
+  margin-left: 200px;
+  margin-bottom: 50px;
 }

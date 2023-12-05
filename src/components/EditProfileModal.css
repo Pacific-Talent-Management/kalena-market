@@ -15,6 +15,9 @@
    	opacity: 0.75;
    	
     }
+    .closeButton:active{
+        background-color: #fff;
+    }
 }
 
 .modal-body {
@@ -26,7 +29,7 @@
     justify-content: center;
     align-content: center;
     
-    .editUser {
+    & .editUser {
     	display: flex;
     	gap: 20px;
     	min-width: 400px;
@@ -35,34 +38,51 @@
     		flex: 1;
     	}
     	
-    	.left{
+    	& .left{
     		flex: 1;
     	}
-    
-    }
-    p {
+    	& p {
     	margin: 0px;
-    }
-    input {
+    	}
+    
+    & input {
     	border: 2px solid lightgrey;
     	border-radius: 5px;
     	padding: 0 10px;
     	margin-bottom: 10px;
     }
-    .alert {
+    
+    }
+    
+    & .alert {
     	max-width: 300px;
     	padding: 5px;
     }
-    .accordion-button {
-    	font-weight: bolder;
-    	padding: 20px;
-    	margin-top: -40px;
-    	max-height: 25px;
-    	width: 300px;
-    	background-color: #fff;
-    	border-bottom: 2px solid lightgrey;
-    	--bs-accordion-btn-focus-box-shadow: none;
-    	--bs-accordion-inner-border-radius: none;
+  
+}
+
+.changePass {
+    background-color: #fff;
+    align-items: center!important;
+    justify-content: center;
+    align-content: center;
+    
+    & p {
+    	margin: 0px;
+    	}
+    
+    & input {
+    	border: 2px solid lightgrey;
+    	border-radius: 5px;
+    	padding: 0 10px;
+    	margin-bottom: 10px;
+    }
+    
+    
+    
+    & .alert {
+    	max-width: 300px;
+    	padding: 5px;
     }
     
 }

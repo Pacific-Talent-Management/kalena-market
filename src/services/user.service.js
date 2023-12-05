@@ -31,6 +31,10 @@ const uploadResumeData = () => {
     return axios.post(API_URL + "resumes/upload", {headers:authHeader()})
 }
 
+const updatePass = (userId, userData) => {
+    return axios.patch(API_URL + `users/pass/${userId}`,
+        userData, {headers: authHeader()});
+}
 /**
  * Fetches talent-manager specific data from the "manager" endpoint via an HTTP GET request to the API.
  * It includes the manager's authentication headers to ensure secure access
@@ -60,7 +64,9 @@ const UserService = {
     getAdminPageData,
     updateUser,
     getResumeData,
-    uploadResumeData
+    uploadResumeData,
+    updatePass,
+
 };
 
 export default UserService;

@@ -54,6 +54,8 @@ app.get("/users/:id", db.loadUser);
 
 app.patch("/users/:id", db.editUser);
 
+app.patch("/users/pass/:id", db.editPass);
+
 app.patch("/users/:id", db.updateImage);
 
 app.get("/likes/:user_id", db.getLikes);

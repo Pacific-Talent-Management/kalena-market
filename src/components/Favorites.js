@@ -97,7 +97,13 @@ const Favorites = () => {
             {filtered.map((job) => (
               <Card bg="light" key="Light" text="dark" className="mb-4 w-100">
                 <Card.Header className="border-bottom-0 pb-0 bg-light">
-                  <h3>{job.title}</h3>
+                  <h3>{job.title}
+                  	{job.critical ? (
+                		<i className="bi bi-exclamation-circle-fill mx-2 text-danger"></i>
+                	):(
+                 	<></>
+                	)}
+                  </h3>
                 </Card.Header>
                 <Card.Body className="border-top-0 border-bottom-0 py-0">
                   <Row key={job.id}>
@@ -131,6 +137,7 @@ const Favorites = () => {
                 <Card.Footer className="d-flex justify-content-between border-top-0 py-0 bg-light">
                   <JobsModal
                     id={job.id}
+                    critical={job.critical}
                     title={job.title}
                     description={job.description}
                     open={job.open}

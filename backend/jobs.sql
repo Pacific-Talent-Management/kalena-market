@@ -229,8 +229,6 @@ insert into jobs (
 	'["Male applicants born after December 31, 1959, must complete a Pre-Employment Certification Statement for Selective Service Registration.", "You will be required to provide proof of U.S. Citizenship.", "One year probationary period may be required.", "Direct deposit of pay is required.", "Selection is subject to restrictions resulting from Department of Defense referral system for displaced employees.", "If you have retired from federal service and you are interested in employment as a reemployed annuitant, see the information in the Reemployed Annuitant information sheet.", "This is a Human Capital and Resource Management Career Field position.", "Multiple positions may be filled from this announcement.", "Salary includes applicable locality pay.", "Payment of Permanent Change of Station (PCS) costs is not authorized, based on a determination that a PCS move is not in the Government interest."]'
 );
 
-
-
 create table likes(
    id serial,
    user_id bigint unsigned,

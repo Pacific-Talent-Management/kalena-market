@@ -12,6 +12,7 @@ import Login from './components/Login';
 import Profile from './components/Profile';
 import Registration from './components/Registration'
 import Jobs from './components/Jobs';
+import Resumes from './components/Resumes';
 import Error from './components/Error';
 
 
@@ -35,10 +36,8 @@ const App = () => {
     window.location.href="/";
   }
 
-
-
-
   return (
+
   <div>
     {currentUser ? (  
     <div className='w-100'>
@@ -80,6 +79,7 @@ const App = () => {
             <Route path="/profile" element={<Profile/>} />
             <Route path="/jobs" element={<Jobs/>} />
             <Route path="/home" element={<Home/>} />
+            <Route path="/resumes" element={<Resumes/>}/>
             <Route path="/" element={<Home/>} />
           </Routes>
       ):(

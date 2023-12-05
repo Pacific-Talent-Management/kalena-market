@@ -207,8 +207,80 @@ function unlikeJob(request, response) {
       return response.json(data);
    });
 }
+function uploadResume(req, res){
+   try{
+      const{
+         user_id,
+         summary,
+         civilian,
+         education,
+         assignments,
+         skills_certs,
+         languages,
+         lang_desc,
+         cultural,
+         ref1_name,
+         ref1_org,
+         ref1_email,
+         ref1_phone,
+         ref2_name,
+         ref2_org,
+         ref2_email,
+         ref2_phone,
+         ref3_name,
+         ref3_org,
+         ref3_email,
+         ref3_phone,
+         ref4_name,
+         ref4_org,
+         ref4_email,
+         ref4_phone,
+      } = req.body;
+      let sql = 'insert into resumes (user_id, summary, civilian, education, assignments, skills_certs'+
+         ' , languages, lang_desc, cultural, ref1_name, ref1_org, ref1_email, ref1_phone'+
+         ' , ref2_name, ref2_org, ref2_email, ref2_phone, ref3_name, ref3_org, ref3_email'+
+         ' , ref3_phone, ref4_name, ref4_org, ref4_email, ref4_phone)'+
+         ' values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);';
+      const values = [
+         user_id,
+         summary,
+         civilian,
+         education,
+         assignments,
+         skills_certs,
+         languages,
+         lang_desc,
+         cultural,
+         ref1_name,
+         ref1_org,
+         ref1_email,
+         ref1_phone,
+         ref2_name,
+         ref2_org,
+         ref2_email,
+         ref2_phone,
+         ref3_name,
+         ref3_org,
+         ref3_email,
+         ref3_phone,
+         ref4_name,
+         ref4_org,
+         ref4_email,
+         ref4_phone,
+      ];
+      connection.execute(sql, values, (err,results,fields) => {
+         if (err) {
+            console.error(err);
+            return res.status(500).json({message: "Internal Server Error"});
+         }
+         res.status(201).json({message: "Resume data uploaded successfully"})
+      });
+   }
+   catch (error) {
+      console.error(error);
+      res.status(500).json({message:"Internal Server Error"});
+   }
+}
 
+module.exports = { createUser, signin, getUsers, getJobs, editUser, loadUser, editPass, updateImage, getLikes, likeJob, unlikeJob, uploadResume};
 
-
-
-module.exports = { createUser, signin, getUsers, getJobs, editUser, loadUser, editPass, updateImage, getLikes, likeJob, unlikeJob };

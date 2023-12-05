@@ -23,6 +23,14 @@ const updateUser = (userId, userData) => {
         userData, {headers: authHeader()});
 }
 
+const getResumeData = () => {
+    return axios.get(API_URL + "flask", {headers: authHeader()})
+};
+
+const uploadResumeData = () => {
+    return axios.post(API_URL + "resumes/upload", {headers:authHeader()})
+}
+
 const updatePass = (userId, userData) => {
     return axios.patch(API_URL + `users/pass/${userId}`,
         userData, {headers: authHeader()});
@@ -55,7 +63,10 @@ const UserService = {
     getManagerPageData,
     getAdminPageData,
     updateUser,
+    getResumeData,
+    uploadResumeData,
     updatePass,
+
 };
 
 export default UserService;

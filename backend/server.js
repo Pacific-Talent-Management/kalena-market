@@ -1,10 +1,12 @@
 const express = require("express");
 const cors = require("cors");
 const db = require("./queries.js");
+const request = require('request');
 
 const app = express();
 
 // allow requests from the React app running at port 8081
+// 8080 is what Express is running on
 let corsOptions = {
    origin: "http://localhost:8081"
 };
@@ -30,6 +32,13 @@ app.use(function(req, res, next) {
 
 
 // Routes
+app.get("/flask", (req, res) => {
+   request('http://127.0.0.1:5000/flask',
+   function (error, response, body) {
+      res.status(200).send(body)
+   
+   });
+});
 app.get("/", (req, res) => {
    res.json({ message: "Welcome to the Kalena backend."});
 });
@@ -55,6 +64,8 @@ app.post("/likes/likeJob", db.likeJob);
 
 app.delete("/likes/:id", db.unlikeJob);
 
+app.post("/resumes/upload", db.uploadResume);
+
 app.listen(8080, () => {
-   console.log('Server running on port 8081');
+   console.log('Server running on port 8080');
 });

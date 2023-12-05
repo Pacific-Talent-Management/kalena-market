@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from "react";
-import UserService from "../services/user.service";
 import AuthService from "../services/auth.service";
+import UserService from "../services/user.service";
 import JobsModal from "../components/JobsModal.js";
 import Hearts from "../components/Hearts.js";
 import { Row, Col } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
+import "./Home.css";
 
-const Jobs = () => {
+const Critical = () => {
+
   const currentUser = AuthService.getCurrentUser();
-
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await UserService.getJobs();
-        const jobData = response.data;
+        const jobData = response.data.filter((data) => data.critical);
         //console.log(jobData);
         setJobs(jobData);
         setLoading(false);
@@ -26,31 +27,29 @@ const Jobs = () => {
         setError(err);
         setLoading(false);
       }
+
     };
     fetchData();
   }, []);
+  
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-  if (error) {
-    return <div> Error: {error.message}</div>;
-  }
-
+  
+  
   return (
-    <div className="py-5 bg-light">
-      <h2 className="mb-4 text-center text-dark">Current Job Opportunities</h2>
+
       <div className="job-cards">
         {jobs.map((job) => (
           <div className="d-flex justify-content-center">
-            <Card bg="light" key="Light" text="dark" className="mb-4 w-75">
+            <Card key="light" text="dark" className="mb-4 w-75 bg-light">
               <Card.Header className="border-bottom-0 pb-0 bg-light">
-                <h3>{job.title}
-                	{job.critical ? (
+                <h3>
+                {job.title}
+                {job.critical ? (
                 	<i className="bi bi-exclamation-circle-fill mx-2 text-danger"></i>
-                	):(
-                 	<></>
-                	)}
+                ):(
+                 <></>
+                )}
+
                 </h3>
               </Card.Header>
               <Card.Body className="border-top-0 border-bottom-0 py-0">
@@ -107,8 +106,8 @@ const Jobs = () => {
           </div>
         ))}
       </div>
-    </div>
+
   );
 };
 
-export default Jobs;
+export default Critical;

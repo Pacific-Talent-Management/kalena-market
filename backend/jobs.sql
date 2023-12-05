@@ -5,6 +5,7 @@ drop table if exists jobs cascade;
 create table jobs (
     id serial,
     status varchar(100),
+    critical boolean default false,
     title varchar(100),
     description varchar(500),
     open varchar(100),
@@ -23,7 +24,8 @@ create table jobs (
 );
 
 insert into jobs (
-	status, 
+	status,
+	critical, 
 	title, 
 	description, 
 	open, 
@@ -40,6 +42,7 @@ insert into jobs (
 	additional
 	) values ( 
 	'published',
+	'1',
 	'Army Reserve Administrator',
     	'This is a Military Technician position with the 9th Mission Support Command, 18th Medical Deployment Support Command located at Fort Shafter Flats, Hawaii.',
     	'11/07/2023',
@@ -57,7 +60,8 @@ insert into jobs (
 );
 
 insert into jobs (
-	status, 
+	status,
+	critical, 
 	title, 
 	description, 
 	open, 
@@ -74,6 +78,7 @@ insert into jobs (
 	additional
 	) values ( 
 	'published',
+	'1',
 	'Heavy Mobile Equipment Repairer',
     	'This position is a Military Technician position with the 9th Mission Support Command, Branch Maintenance Activity 1, Equipment Concentration Site 168, United States Army Reserve Theater Support Group, Pacific located at Fort Richardson, Alaska.',
     	'11/07/2023',
@@ -92,7 +97,8 @@ insert into jobs (
 
 
 insert into jobs (
-	status, 
+	status,
+	critical, 
 	title, 
 	description, 
 	open, 
@@ -109,6 +115,7 @@ insert into jobs (
 	additional
 	) values ( 
 	'published',
+	'0',
 	'Logistics Management Specialist',
     	'This position is a Military Technician position with the 9th Mission Support Command, Headquarters Support Company, 411th Engineer Battalion located in Fort Shafter Flats, Hawaii.',
     	'11/25/2023',
@@ -127,7 +134,8 @@ insert into jobs (
 	
 
 insert into jobs (
-	status, 
+	status,
+	critical, 
 	title, 
 	description, 
 	open, 
@@ -144,6 +152,7 @@ insert into jobs (
 	additional
 	) values ( 
 	'published',
+	'1',
 	'Safety & Occupational Health Specialist',
     	'This position is with the 3rd Multi-Domain Task Force located on Fort Shafter, Hawaii.',
     	'12/04/2023 ',
@@ -161,7 +170,8 @@ insert into jobs (
 );
 
 insert into jobs (
-	status, 
+	status,
+	critical, 
 	title, 
 	description, 
 	open, 
@@ -178,6 +188,7 @@ insert into jobs (
 	additional
 	) values ( 
 	'published',
+	'0',
 	'Management and Program Analyst (Support Operations)',
     	'This position is located on Fort Shafter, Hawaii, which is near the Historical Palm Circle on the island of Oahu. For information about Hawaii, the island of Oahu and US Army Pacific, visit: http://www.hvcb.org and https://www.army.mil/usarpac',
     	'12/01/2023',
@@ -196,7 +207,8 @@ insert into jobs (
 
 
 insert into jobs (
-	status, 
+	status,
+	critical, 
 	title, 
 	description, 
 	open, 
@@ -213,6 +225,7 @@ insert into jobs (
 	additional
 	) values ( 
 	'published',
+	'0',
 	'Human Resources Specialist (Military)',
     	'This position is with the 9th Mission Support Command, Theater Support Group, Directorate of Human Resources located at Fort Shafter Flats, Hawaii.',
     	'12/04/2023',

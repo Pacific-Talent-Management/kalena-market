@@ -23,7 +23,13 @@ function JobsModal(props) {
             >
                 <Modal.Header closeButton>
                     
-                    <Modal.Title>{props.title}</Modal.Title>
+                    <Modal.Title>{props.title}
+                    	{props.critical ? (
+                	<i className="bi bi-exclamation-circle-fill mx-2 text-danger"></i>
+                	):(
+                 	<></>
+                	)}
+                    </Modal.Title>
                     
                 </Modal.Header>
                 <Modal.Body>

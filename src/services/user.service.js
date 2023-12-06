@@ -27,10 +27,18 @@ const getResumeData = () => {
     return axios.get(API_URL + "flask", {headers: authHeader()})
 };
 
+const getProfileResume = (id) => {
+    let url = API_URL + 'resumes/' + id;
+    return axios.get(url, {headers: authHeader()})
+};
+
 const uploadResumeData = () => {
     return axios.post(API_URL + "resumes/upload", {headers:authHeader()})
 }
 
+const getApplicants = (id) => {
+    return axios.get(API_URL + "job_applicants/" + id, {headers:authHeader()})
+}
 const updatePass = (userId, userData) => {
     return axios.patch(API_URL + `users/pass/${userId}`,
         userData, {headers: authHeader()});
@@ -65,7 +73,9 @@ const UserService = {
     updateUser,
     getResumeData,
     uploadResumeData,
+    getProfileResume,
     updatePass,
+    getApplicants
 
 };
 

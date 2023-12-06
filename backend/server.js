@@ -66,6 +66,10 @@ app.delete("/likes/:id", db.unlikeJob);
 
 app.post("/resumes/upload", db.uploadResume);
 
+app.get("/resumes/:id", db.getResume);
+
+app.get("/job_applicants/:id", db.getApplicants);
+
 app.listen(8080, () => {
    console.log('Server running on port 8080');
 });

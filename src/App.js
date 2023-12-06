@@ -14,6 +14,8 @@ import Registration from './components/Registration'
 import Jobs from './components/Jobs';
 import Resumes from './components/Resumes';
 import Error from './components/Error';
+import JobManager from './components/JobManager';
+import Job1 from './components/Job1';
 
 
 const App = () => {
@@ -49,16 +51,17 @@ const App = () => {
             <Nav className="navbar justify-content-end">
                 <Nav.Link href="/home">HOME</Nav.Link>
                 <Nav.Link href="/jobs">JOB OPPORTUNITIES</Nav.Link>
-                <Nav.Link href="/resume">RESUME</Nav.Link>
+                <Nav.Link href="/resumes">RESUME</Nav.Link>
 
                 {showModeratorBoard && (
                   <Nav.Link href="/mod">MANAGER BOARD</Nav.Link>
+          
                 )}
 
                 {showAdminBoard && (
                   <Nav.Link href="/admin">ADMIN CONTROLS</Nav.Link>
                 )}
-
+                <Nav.Link href="/job_manager">APPLICANTS</Nav.Link>
                 <Nav.Link href="/profile">PROFILE</Nav.Link>
                 <Nav.Link onClick={logOut}>SIGN OUT</Nav.Link>
               </Nav>
@@ -81,6 +84,8 @@ const App = () => {
             <Route path="/home" element={<Home/>} />
             <Route path="/resumes" element={<Resumes/>}/>
             <Route path="/" element={<Home/>} />
+            <Route path="/job_manager" element={<JobManager/>}/>
+            <Route path="/job1" element={<Job1/>}/>
           </Routes>
       ):(
           <Routes>

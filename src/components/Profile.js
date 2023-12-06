@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useState, useEffect} from 'react';
+import axios from "axios";
+import UserService from "../services/user.service";
 import AuthService from "../services/auth.service";
 import { Link } from "react-router-dom";
 import { Row, Col, Tab, Tabs, ListGroup } from "react-bootstrap";
@@ -8,6 +10,20 @@ import Favorites from "../components/Favorites.js";
 
 const Profile = () => {
   const currentUser = AuthService.getCurrentUser();
+  const[resumeData, setResumeData] = useState({});
+
+  async function getDataForResumeTab() {
+    const results = await UserService.getProfileResume(currentUser.id);
+    const data = results.data;
+    setResumeData(data[0]);
+  }
+  useEffect(() => {getDataForResumeTab();
+  },{resumeData});
+
+
+  
+
+  
 
   const name = currentUser.first_name + " " + currentUser.last_name;
   const phone =
@@ -22,7 +38,7 @@ const Profile = () => {
   let location = currentUser.location;
   let website = currentUser.link;
   let image = currentUser.image;
-  console.log(currentUser.image);
+  //console.log(currentUser.image);
   if (user_rank == null) {
     user_rank = "edit profile";
   }
@@ -133,7 +149,23 @@ const Profile = () => {
             eventKey="resumes"
             title="Resumes"
           >
-            Tab content for resumes and related documents
+            <b>Summary:</b>&nbsp;
+            {resumeData['summary']}<br/>
+            <b>Educations: </b> &nbsp;
+            {resumeData.education}<br/>
+            <b>Civilian: </b> &nbsp;
+            {resumeData.civilian}<br/>
+            <b>Assignments: </b> &nbsp;
+            {resumeData.assignments}<br/>
+            <b>Additional Skills & Certifications: </b> &nbsp;
+            {resumeData.skills_certs}<br/>
+            <b>Cultural Experiences & Travel: </b> &nbsp;
+            {resumeData.cultural}<br/>
+            <b>Languages: </b> &nbsp;
+            {resumeData.languages}<br/>
+            <b>Languages - Description: </b> &nbsp;
+            {resumeData.lang_desc}<br/>
+            
           </Tab>
         </Tabs>
       </Col>

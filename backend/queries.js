@@ -207,6 +207,23 @@ function unlikeJob(request, response) {
       return response.json(data);
    });
 }
+function getResume(req, res) {
+   const id = req.params.id;
+   let sql = 'select * from resumes where user_id=?';
+   connection.query(sql,id, (err,data) => {
+      if (err) return res.send(err);
+      return res.json(data);
+   })
+}
+function getApplicants(req,res) {
+   const id = req.params.id;
+   let sql = 'select * from jobs_likes_view where job_id=?';
+   connection.query(sql,id, (err,data) => {
+      if (err) return res.send(err);
+      return res.json(data);
+   })
+}
+
 function uploadResume(req, res){
    try{
       const{
@@ -241,6 +258,7 @@ function uploadResume(req, res){
          ' , ref2_name, ref2_org, ref2_email, ref2_phone, ref3_name, ref3_org, ref3_email'+
          ' , ref3_phone, ref4_name, ref4_org, ref4_email, ref4_phone)'+
          ' values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);';
+      
       const values = [
          user_id,
          summary,
@@ -268,6 +286,7 @@ function uploadResume(req, res){
          ref4_email,
          ref4_phone,
       ];
+      
       connection.execute(sql, values, (err,results,fields) => {
          if (err) {
             console.error(err);
@@ -282,5 +301,7 @@ function uploadResume(req, res){
    }
 }
 
-module.exports = { createUser, signin, getUsers, getJobs, editUser, loadUser, editPass, updateImage, getLikes, likeJob, unlikeJob, uploadResume};
+module.exports = { createUser, signin, getUsers, getJobs, editUser,
+   loadUser, editPass, updateImage, getLikes, likeJob, unlikeJob,
+   uploadResume, getResume, getApplicants};
 

@@ -2,8 +2,9 @@ import React, {useState, useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import UserService from '../services/user.service';
-
+import {useNavigate} from 'react-router-dom';
 const Resumes = () => {
+    let navigate = useNavigate();
     const API_URL = "http://localhost:8080/";
     const[file, setFile] = useState(null);
     const[resumeData, setResumeData] = useState({
@@ -217,7 +218,10 @@ const Resumes = () => {
             ref4_org,
             ref4_email,
             ref4_phone
-        });
+        }
+        );
+        navigate("/profile");
+        window.location.reload();
     }
     
     return (
